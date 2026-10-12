@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rúbrica de microsesión virtual</title>
+<style>
+:root{--ink:#15304A;--soft:#55667a;--line:#c9d3db;--bg:#f5f7f9;--card:#fff;--sel:#e1efe6;--selb:#2F7D5B;--acc:#B8322A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ink:#e6edf2;--soft:#a9b8c4;--line:#2b3e4d;--bg:#0f1c27;--card:#172734;--sel:#1e3a2e;--selb:#5bbf8e;--acc:#e0605a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 16px 48px}
+header{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:18px}
+h1{font-size:clamp(1.4rem,3vw,1.9rem);margin:0 0 4px}
+.sub{color:var(--soft);margin:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px 16px;margin:16px 0}
+label{display:block;font-size:.85rem;color:var(--soft)}
+input,textarea{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink)}
+.info{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.95rem}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:900px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:9px 10px;vertical-align:top;font-size:.9rem}
+thead th{background:var(--ink);color:var(--card);text-align:left}
+td.crit{width:19%;font-weight:bold}
+td.crit span{display:block;font-weight:normal;color:var(--soft);font-size:.82rem;margin-top:4px}
+td.lv{cursor:pointer;width:20%}
+td.lv:hover{outline:2px solid var(--line);outline-offset:-3px}
+td.lv.on{background:var(--sel);outline:2px solid var(--selb);outline-offset:-3px}
+td.lv b{display:block;margin-bottom:3px}
+td.lv:focus-visible{outline:3px solid var(--acc);outline-offset:-3px}
+.total{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:18px 0;padding:14px 16px;background:var(--card);border:2px solid var(--ink);border-radius:8px}
+.total .n{font-size:2rem;font-weight:bold}
+.total .lvl{font-weight:bold;color:var(--selb)}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+button{font:inherit;border:none;border-radius:6px;padding:10px 16px;background:var(--ink);color:var(--card);cursor:pointer}
+button.alt{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.scale{font-size:.85rem;color:var(--soft)}
+footer{margin-top:24px;font-size:.82rem;color:var(--soft)}
+@media print{
+  @page{size:A4 landscape;margin:12mm}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .btns,.noprint{display:none}
+  .wrap{max-width:none;padding:0}
+  table{min-width:0}
+  th,td{font-size:9pt;padding:5px 6px}
+  thead th{background:#15304A!important;color:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  td.lv.on{background:#e1efe6!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  input,textarea{border:none;border-bottom:1px solid #999;border-radius:0;padding:2px 0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Rúbrica para evaluar la microsesión virtual para guiar una investigación</h1>
+  <p class="sub">Instrumento para evaluar el producto final de la sesión «La enseñanza e-learning» · Informe técnico: perfil de competencias del tutor investigador en la enseñanza e-learning · Técnicas y estrategias para la enseñanza y asesoría de la investigación científica online · UCV, Segunda Especialidad en Didáctica de la Investigación en Entornos Virtuales</p>
+  <p class="sub">Elaborado por el Grupo 7: Angulo Muñoz, Llony; Espinoza Pérez, Tania; Iturbe Quiroz, Rosa Elizabeth; Machoa Olortegui, Mari Elizabeth; Prado Lozano, Nancy Lionel.</p>
+</header>
+
+<div class="meta">
+  <div><label for="est">Participante(s)</label><input id="est" placeholder="Apellidos y nombres"></div>
+  <div><label for="prod">Título de la microsesión</label><input id="prod" placeholder="Título del producto"></div>
+  <div><label for="ev">Evaluador(a)</label><input id="ev" placeholder="Docente o par evaluador"></div>
+  <div><label for="fe">Fecha</label><input id="fe" type="date"></div>
+</div>
+
+<div class="info noprint">
+  <strong>Cómo usarla:</strong> haga clic en la celda que mejor describe el desempeño en cada criterio. El puntaje total (sobre 20) y el nivel de logro se calculan solos. Al terminar, use «Guardar en PDF» para obtener la evidencia de evaluación.
+</div>
+<p class="scale">Escala: Destacado = 4 · Logrado = 3 · En proceso = 2 · En inicio = 1. Cinco criterios, puntaje máximo 20.</p>
+
+<div class="scroll">
+<table id="rub">
+<thead><tr><th>Criterio (competencia del perfil)</th><th>Destacado (4)</th><th>Logrado (3)</th><th>En proceso (2)</th><th>En inicio (1)</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>
+
+<div class="total" aria-live="polite">
+  <div><div class="scale">Puntaje total</div><div class="n" id="tot">0 / 20</div></div>
+  <div><div class="scale">Nivel de logro</div><div class="lvl" id="lvl">Sin evaluar</div></div>
+  <div><div class="scale">Criterios evaluados</div><div id="cnt">0 de 5</div></div>
+</div>
+
+<div><label for="com">Retroalimentación para el participante (fortalezas y mejoras)</label><textarea id="com" rows="4"></textarea></div>
+
+<div class="btns">
+  <button id="pdf">Guardar en PDF / imprimir</button>
+  <button class="alt" id="rst">Limpiar evaluación</button>
+</div>
+
+<footer>
+  Niveles de logro (escala vigesimal): 18–20 Logro destacado · 14–17 Logro esperado · 11–13 En proceso · 0–10 En inicio. Cada criterio corresponde a una de las cinco competencias del perfil propuesto en el informe técnico del Grupo 7.
+</footer>
+</div>
+
+<script>
+const R=[
+ {c:"1. Planificación de la sesión virtual",d:"Competencia pedagógico-didáctica",l:[
+  "El propósito, las actividades, los materiales y la evaluación están relacionados. La sesión tiene inicio, desarrollo y cierre claros, es realista y promueve la participación.",
+  "El propósito, las actividades y la evaluación están relacionados. Alguna actividad podría promover más participación.",
+  "Falta alguna parte de la sesión o no todo se relaciona con el propósito.",
+  "No se distingue una sesión organizada ni un propósito claro."]},
+ {c:"2. Orientación de la investigación",d:"Competencia investigativa y de asesoría",l:[
+  "Orienta con claridad la pregunta de investigación, los pasos a seguir y la búsqueda en al menos tres fuentes académicas pertinentes.",
+  "Orienta la pregunta y la búsqueda de fuentes, con errores menores.",
+  "Aborda la investigación de forma general; la pregunta o las fuentes no son pertinentes.",
+  "No orienta la investigación o lo hace de forma incorrecta."]},
+ {c:"3. Uso de herramientas digitales e IA",d:"Competencia tecnológica y digital",l:[
+  "Usa herramientas pertinentes y accesibles (al menos una de IA) y explica cómo usarlas con responsabilidad y cómo verificar lo que produce la IA.",
+  "Usa herramientas pertinentes e IA, pero explica poco su uso responsable.",
+  "Usa herramientas sin explicar su función o sin considerar el uso responsable de la IA.",
+  "Las herramientas no son pertinentes o no se integran en la actividad."]},
+ {c:"4. Acompañamiento y retroalimentación",d:"Competencia comunicativa y tutorial",l:[
+  "Incluye bienvenida, seguimiento, canales y tiempos de respuesta definidos, y retroalimentación oportuna orientada a la mejora.",
+  "Define canales y forma de retroalimentar, aunque faltan precisiones sobre tiempos o tono.",
+  "La comunicación es escasa y la retroalimentación es general.",
+  "No considera la comunicación con los estudiantes ni la retroalimentación."]},
+ {c:"5. Evaluación, integridad y organización",d:"Competencia ética, evaluativa y de gestión",l:[
+  "Presenta un instrumento de evaluación adecuado, un cronograma viable, normas de integridad académica y referencias APA 7 sin errores.",
+  "Presenta instrumento, cronograma y referencias APA 7 con errores menores.",
+  "El instrumento o el cronograma están incompletos; las referencias tienen varios errores.",
+  "No presenta instrumento de evaluación ni referencias."]}
+];
+const sel=new Array(R.length).fill(0);
+const tb=document.querySelector("#rub tbody");
+R.forEach((r,i)=>{
+  const tr=document.createElement("tr");
+  tr.innerHTML=`<td class="crit">${r.c}<span>${r.d}</span></td>`+r.l.map((t,j)=>`<td class="lv" tabindex="0" role="button" aria-pressed="false" data-i="${i}" data-p="${4-j}"><b>${4-j} pts</b>${t}</td>`).join("");
+  tb.appendChild(tr);
+});
+function upd(){
+  document.querySelectorAll("td.lv").forEach(td=>{const on=sel[+td.dataset.i]===+td.dataset.p;td.classList.toggle("on",on);td.setAttribute("aria-pressed",on);});
+  const t=sel.reduce((a,b)=>a+b,0), n=sel.filter(x=>x>0).length;
+  document.getElementById("tot").textContent=t+" / 20";
+  document.getElementById("cnt").textContent=n+" de 5";
+  let l="Sin evaluar"; if(n===5){ l=t>=18?"Logro destacado":t>=14?"Logro esperado":t>=11?"En proceso":"En inicio"; } else if(n>0){ l="Evaluación en curso"; }
+  document.getElementById("lvl").textContent=l;
+  try{localStorage.setItem("rubrica-g7",JSON.stringify({sel,f:["est","prod","ev","fe","com"].map(id=>document.getElementById(id).value)}));}catch(e){}
+}
+document.querySelectorAll("td.lv").forEach(td=>{
+  const go=()=>{sel[+td.dataset.i]=+td.dataset.p;upd();};
+  td.addEventListener("click",go);
+  td.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});
+});
+["est","prod","ev","fe","com"].forEach(id=>document.getElementById(id).addEventListener("input",upd));
+try{const s=JSON.parse(localStorage.getItem("rubrica-g7")||"null"); if(s){s.sel.forEach((v,i)=>sel[i]=v); ["est","prod","ev","fe","com"].forEach((id,k)=>document.getElementById(id).value=s.f[k]||"");}}catch(e){}
+document.getElementById("pdf").addEventListener("click",()=>window.print());
+document.getElementById("rst").addEventListener("click",()=>{sel.fill(0);["est","prod","ev","fe","com"].forEach(id=>document.getElementById(id).value="");upd();});
+upd();
+</script>
+</body>
+</html>
